@@ -1,0 +1,58 @@
+@model IEnumerable<dio_trilha_net_api_aspnet_gerenciador_tarefas.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Lista de tarefas";
+}
+
+<h2>Tarefas</h2>
+
+<a asp-action="Novo" class="btn btn-primary">Nova tarefa</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+                    <a asp-action="Deletar" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
