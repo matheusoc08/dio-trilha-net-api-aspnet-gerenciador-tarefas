@@ -23,15 +23,6 @@ namespace dio_trilha_net_api_aspnet_gerenciador_tarefas.Controllers
             return View(tarefas);
         }
 
-        // [HttpGet("Titulo")]
-        // public IActionResult Index(string titulo)
-        // {
-        //     titulo = "Teste";
-        //     var tarefas = _context.Tarefas.Where(x => x.Titulo.Equals(titulo));
-
-        //     return View(tarefas);
-        // }
-
         public IActionResult Novo()
         {
             return View();
