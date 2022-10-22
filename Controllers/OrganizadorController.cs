@@ -20,17 +20,17 @@ namespace dio_trilha_net_api_aspnet_gerenciador_tarefas.Controllers
         public IActionResult Index()
         {
             var tarefas = _context.Tarefas.ToList();
-
             return View(tarefas);
         }
 
-        [HttpGet("Titulo")]
-        public IActionResult Index(string titulo)
-        {
-            var tarefas = _context.Tarefas.Where(x => x.Titulo.Contains(titulo));
+        // [HttpGet("Titulo")]
+        // public IActionResult Index(string titulo)
+        // {
+        //     titulo = "Teste";
+        //     var tarefas = _context.Tarefas.Where(x => x.Titulo.Equals(titulo));
 
-            return View(tarefas);
-        }
+        //     return View(tarefas);
+        // }
 
         public IActionResult Novo()
         {
@@ -40,7 +40,6 @@ namespace dio_trilha_net_api_aspnet_gerenciador_tarefas.Controllers
         [HttpPost]
         public IActionResult Novo(Tarefa tarefa)
         {
-
             _context.Tarefas.Add(tarefa);
             _context.SaveChanges();
             return RedirectToAction(nameof(Novo));
